@@ -75,7 +75,7 @@ func getFetcher(tag string, t string, ptr bool) (Fetcher, error) {
 	var defVal, format string
 	hasDef := false
 	args := strings.Split(tag, ",")
-	varName := args[0]
+	varName := strings.TrimSpace(args[0])
 	if len(args) > 1 {
 		// yes there's options
 		for i := 1; i < len(args); i++ {
