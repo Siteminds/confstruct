@@ -80,7 +80,7 @@ func getFetcher(tag string, t string, ptr bool) (Fetcher, error) {
 		// yes there's options
 		for i := 1; i < len(args); i++ {
 			argParts := strings.Split(args[i], "=")
-			switch argParts[0] {
+			switch strings.TrimSpace(argParts[0]) {
 			case "default":
 				defVal = argParts[1]
 				hasDef = true
