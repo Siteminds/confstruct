@@ -1,6 +1,12 @@
 # confstruct
 
-Library for easily getting configuration structs from env variables
+Library for easily getting configuration structs from env variables.
+
+For serious production code you'll want something like
+[viper](https://github.com/spf13/viper) and
+[cobra](https://github.com/spf13/cobra). But sometimes you just want
+something lean and mean, that takes configuration from environment
+variables.
 
 ## Usage
 
