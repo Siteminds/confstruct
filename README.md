@@ -33,9 +33,12 @@ need more types, simply provide a pull request with a new `Fetcher`.
 
 For `time.Time` values, the `format=` must be set, to inform the
 conversion function about the way the datetime string is formatted,
-in order to be able to properly convert it. A special default value
-for times can be used: `default=now`. This will make confstruct put
-in the current date+time in by default.
+in order to be able to properly convert it. For more information on
+proper formatting strings see
+[this article](https://programming.guide/go/format-parse-string-time-date-example.html).
+
+A special default value for times can be used: `default=now`. This
+will make confstruct put in the current date+time in by default.
 
 ### Float64
 
