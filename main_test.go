@@ -52,6 +52,10 @@ type RandomFloatStruct struct {
 	A float64 `conf:"FIELDA,default=random"`
 }
 
+type SpacedTagsStruct struct {
+	A string `conf:" FIELDA, default=bar"`
+}
+
 func TestPopulateInvalidStruct(t *testing.T) {
 	its := InvalidTestStruct{}
 	err := Populate(&its)
@@ -210,6 +214,13 @@ func TestPopulateRandomFloat(t *testing.T) {
 	assert.Empty(t, err)
 	assert.NotEqual(t, RandomFloatStruct{}, ts)
 	t.Logf("%v", ts)
+}
+
+func TestSpacedTags(t *testing.T) {
+	ts := SpacedTagsStruct{A: "foo"}
+	err := Populate(&ts)
+	assert.Empty(t, err)
+	assert.Equal(t, SpacedTagsStruct{A: "bar"}, ts)
 }
 
 func resetEnv() {
