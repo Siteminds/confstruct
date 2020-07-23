@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/Siteminds/confstruct)](https://goreportcard.com/report/github.com/Siteminds/confstruct)
+
 # confstruct
 
 Library for easily getting configuration structs from env variables.
