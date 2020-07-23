@@ -1,4 +1,5 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/Siteminds/confstruct)](https://goreportcard.com/report/github.com/Siteminds/confstruct)
+[![Github Action](https://github.com/Siteminds/confstruct/workflows/Go/badge.svg)](https://github.com/Siteminds/confstruct/actions?query=workflow%3AGo)
 
 # confstruct
 
