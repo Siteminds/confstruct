@@ -56,6 +56,10 @@ type SpacedTagsStruct struct {
 	A string `conf:" FIELDA, default=bar"`
 }
 
+type BooleanStruct struct {
+	A bool `conf:"FIELDA"`
+}
+
 func TestPopulateInvalidStruct(t *testing.T) {
 	its := InvalidTestStruct{}
 	err := Populate(&its)
@@ -221,6 +225,14 @@ func TestSpacedTags(t *testing.T) {
 	err := Populate(&ts)
 	assert.Empty(t, err)
 	assert.Equal(t, SpacedTagsStruct{A: "bar"}, ts)
+}
+
+func TestQuotedBoolean(t *testing.T) {
+	bs := BooleanStruct{A: false}
+	os.Setenv("FIELDA", "\"true\"")
+	err := Populate(&bs)
+	assert.Empty(t, err)
+	assert.Equal(t, BooleanStruct{A: true}, bs)
 }
 
 func resetEnv() {
