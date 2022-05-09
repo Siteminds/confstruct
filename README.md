@@ -13,6 +13,10 @@ variables.
 
 ## Usage
 
+```
+go get -u -v siteminds.dev/confstruct`
+```
+
 Simply annotate your structure with `conf` tags. The first (required)
 argument must be the name of the corresponding environment variable.
 Optionally a default value can be set using `default=`.
