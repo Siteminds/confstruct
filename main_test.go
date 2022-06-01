@@ -235,6 +235,18 @@ func TestQuotedBoolean(t *testing.T) {
 	assert.Equal(t, BooleanStruct{A: true}, bs)
 }
 
+func TestDoubleQuotedBoolean(t *testing.T) {
+	bs := BooleanStruct{A: false}
+	os.Setenv("FIELDA", "'\"true\"'")
+	err := Populate(&bs)
+	assert.Empty(t, err)
+	assert.Equal(t, BooleanStruct{A: true}, bs)
+	os.Setenv("FIELDA", "\"'true'\"")
+	err = Populate(&bs)
+	assert.Empty(t, err)
+	assert.Equal(t, BooleanStruct{A: true}, bs)
+}
+
 func resetEnv() {
 	// Now we set the OS env vars
 	os.Unsetenv("FIELDA")

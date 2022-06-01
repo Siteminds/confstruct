@@ -66,7 +66,11 @@ type BoolFetcher struct {
 // Fetch returns the boolean value
 func (v BoolFetcher) Fetch() (reflect.Value, error) {
 	val := os.Getenv(v.VarName)
+
+	// Unquote
 	val = strings.ReplaceAll(val, "\"", "")
+	val = strings.ReplaceAll(val, "'", "")
+
 	if val == "" && v.HasDef {
 		val = v.Default
 	}
