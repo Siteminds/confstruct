@@ -233,6 +233,10 @@ func TestQuotedBoolean(t *testing.T) {
 	err := Populate(&bs)
 	assert.Empty(t, err)
 	assert.Equal(t, BooleanStruct{A: true}, bs)
+	os.Setenv("FIELDA", "'true'")
+	err = Populate(&bs)
+	assert.Empty(t, err)
+	assert.Equal(t, BooleanStruct{A: true}, bs)
 }
 
 func TestDoubleQuotedBoolean(t *testing.T) {
